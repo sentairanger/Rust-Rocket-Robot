@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Install Rust
+      register: port
+      command: "$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh"
+    - debug:
+        var: port.stdout_lines
