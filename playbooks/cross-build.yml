@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Build application with required target
+      register: port
+      command: "cross build --target=<target>"
+    - debug:
+        var: port.stdout_lines
